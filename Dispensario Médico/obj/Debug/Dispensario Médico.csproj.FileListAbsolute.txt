@@ -1,0 +1,63 @@
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe.config
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.pdb
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csprojResolveAssemblyReference.cache
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Login.resources
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Main.resources
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Services.resources
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Properties.Resources.resources
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csproj.GenerateResource.Cache
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.exe
+c:\users\yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.pdb
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicamentos.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Users.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Farmacos.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Marcas.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicos.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Pacientes.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Ubicaciones.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Visitas.resources
+C:\Users\Yasmín\Documents\Visual Studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Consultas.resources
+C:\Users\Yasmín\documents\visual studio 2015\Projects\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.ValidacionesInicializaciones.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe.config
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.exe
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.pdb
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.pdb
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csprojResolveAssemblyReference.cache
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Consultas.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Farmacos.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.ValidacionesInicializaciones.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Login.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Main.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Marcas.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicamentos.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicos.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Pacientes.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Services.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Properties.Resources.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Ubicaciones.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Users.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Visitas.resources
+C:\Users\Yasmín\Downloads\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csproj.GenerateResource.Cache
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe.config
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.exe
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.pdb
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.exe
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\bin\Debug\Dispensario Médico.pdb
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csprojResolveAssemblyReference.cache
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Consultas.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Farmacos.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.ValidacionesInicializaciones.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Login.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Main.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Marcas.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicamentos.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Medicos.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Pacientes.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Services.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Properties.Resources.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Ubicaciones.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Users.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Visitas.resources
+C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csproj.GenerateResource.Cache
