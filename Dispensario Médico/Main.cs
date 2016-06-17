@@ -20,17 +20,20 @@ namespace Dispensario_Médico
         private void btnServicios_Click(object sender, EventArgs e)
         {
             Services servicios = new Services();
-            servicios.Show();
             servicios.usuario = lbUserName.Text;
             servicios.tipoUsuario = lbUserType.Text;
             servicios.pbImagen.Image = pbUser.Image;
+            servicios.Show();
+            servicios.btnMarcas.PerformClick();
             this.Close();
         }
 
         private void btnConsultas_Click(object sender, EventArgs e)
         {
             Consultas consulta = new Consultas();
-            consulta.main = this;
+            consulta.lbUsuario.Text = lbUserName.Text;
+            consulta.lbTipoUsuario.Text = lbUserType.Text;
+            consulta.pbFoto.Image = pbUser.Image;
             consulta.Show();
             this.Close();
         }

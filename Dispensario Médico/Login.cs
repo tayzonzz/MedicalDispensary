@@ -56,6 +56,10 @@ namespace Dispensario_Médico
 
                             this.Hide();
                         }
+                        else
+                        {
+                            MessageBox.Show("Estimado usuario, al parecer lo botaron porque su cuenta está desactivada :v");
+                        }
                     }
                     else
                     {

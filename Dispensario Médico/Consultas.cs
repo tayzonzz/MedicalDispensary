@@ -13,10 +13,8 @@ namespace Dispensario_Médico
 {
     public partial class Consultas : Form
     {
-
         ValidacionesInicializaciones frmVI = new ValidacionesInicializaciones();
         SqlCommand cmd;
-        public Main main;
 
         public Consultas()
         {
@@ -25,6 +23,15 @@ namespace Dispensario_Médico
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Main main = new Main();
+            main.lbUserName.Text = lbUsuario.Text;
+            main.lbUserType.Text = lbTipoUsuario.Text;
+
+            if (pbFoto != null)
+            {
+                main.pbUser.Image = pbFoto.Image;
+            }
+
             main.Show();
             this.Close();
         }

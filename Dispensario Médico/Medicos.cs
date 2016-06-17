@@ -156,7 +156,7 @@ namespace Dispensario_Médico
                 }
             }
 
-                cmd = new SqlCommand("sp_ExisteCedulaPaciente", conn);
+                cmd = new SqlCommand("sp_ExisteCedulaMedico", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@cedula", txtCedula.Text);

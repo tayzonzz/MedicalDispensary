@@ -44,9 +44,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaMin = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.lbUsuario = new System.Windows.Forms.Label();
+            this.lbTipoUsuario = new System.Windows.Forms.Label();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -235,11 +239,43 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Desde";
             // 
+            // lbUsuario
+            // 
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Location = new System.Drawing.Point(13, 20);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(35, 13);
+            this.lbUsuario.TabIndex = 25;
+            this.lbUsuario.Text = "label7";
+            this.lbUsuario.Visible = false;
+            // 
+            // lbTipoUsuario
+            // 
+            this.lbTipoUsuario.AutoSize = true;
+            this.lbTipoUsuario.Location = new System.Drawing.Point(12, 52);
+            this.lbTipoUsuario.Name = "lbTipoUsuario";
+            this.lbTipoUsuario.Size = new System.Drawing.Size(35, 13);
+            this.lbTipoUsuario.TabIndex = 26;
+            this.lbTipoUsuario.Text = "label8";
+            this.lbTipoUsuario.Visible = false;
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Location = new System.Drawing.Point(13, 69);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(34, 21);
+            this.pbFoto.TabIndex = 27;
+            this.pbFoto.TabStop = false;
+            this.pbFoto.Visible = false;
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 621);
+            this.Controls.Add(this.pbFoto);
+            this.Controls.Add(this.lbTipoUsuario);
+            this.Controls.Add(this.lbUsuario);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -253,6 +289,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +313,8 @@
         private System.Windows.Forms.DateTimePicker dtpFechaMax;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpFechaMin;
+        public System.Windows.Forms.Label lbUsuario;
+        public System.Windows.Forms.Label lbTipoUsuario;
+        public System.Windows.Forms.PictureBox pbFoto;
     }
 }

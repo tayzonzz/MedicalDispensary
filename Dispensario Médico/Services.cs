@@ -25,17 +25,7 @@ namespace Dispensario_Médico
             InitializeComponent();
 
             x = 0;
-            dataadapter = new SqlDataAdapter("SELECT * FROM Marca", frmVI.conn);
-            comando = new SqlCommandBuilder(dataadapter);
-            dispensarioDataSet.Clear();
-            dataadapter.Fill(dispensarioDataSet, "Marca");
-
-            dgvServices.DataSource = null;
-            dgvServices.DataSource = dispensarioDataSet;
-            dgvServices.DataMember = "Marca";
-            lbServiciosTitle.Text = "Marca";
             dgvServices.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
-            desactivarControles();
         }
 
         public int x;
@@ -55,11 +45,6 @@ namespace Dispensario_Médico
             desactivarControles();
         }
 
-        private void cleanLabels()
-        {
-
-        }
-        
         private void btnMarcas_Click(object sender, EventArgs e)
         {
             x = 0;
@@ -252,7 +237,9 @@ namespace Dispensario_Médico
 
                     visita.cbEstado.SelectedItem = selectedRow.Cells["Estado"].Value.ToString();
                 }
+
                 visita.ShowDialog();
+                DesactivarBotonesEmpleado();
             }
         }
 
@@ -566,6 +553,8 @@ namespace Dispensario_Médico
             this.marcaTableAdapter.Fill(this.dispensarioDataSet.Marca);
             // TODO: This line of code loads data into the 'dispensarioDataSet.Usuario' table. You can move, or remove it, as needed.
             this.usuarioTableAdapter.Fill(this.dispensarioDataSet.Usuario);
+
+            DesactivarBotonesEmpleado();
         }
         private void btnUsers_Click(object sender, EventArgs e)
         {
@@ -608,6 +597,7 @@ namespace Dispensario_Médico
                 btnDisable.Cursor = Cursors.No;
             }
 
+            DesactivarBotonesEmpleado();
             btnEdit.Cursor = Cursors.Hand;
             btnRemove.Cursor = Cursors.Hand;
         }
@@ -626,21 +616,34 @@ namespace Dispensario_Médico
         private void btnBack_Click(object sender, EventArgs e)
         {
             Main main = new Main();
-            main.ShowDialog();
             main.lbUserName.Text = usuario;
             main.lbUserType.Text = tipoUsuario;
-            
-            if(pbImagen != null)
+
+            if (pbImagen != null)
             {
                 main.pbUser.Image = pbImagen.Image;
             }
 
+            main.Show();
             this.Close();
+
         }
 
         private void dgvServices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnEdit.PerformClick();
+        }
+
+        private void DesactivarBotonesEmpleado()
+        {
+            if (tipoUsuario == "Empleado")
+            {
+                btnUsers.Enabled = false;
+                btnUsers.BackColor = Color.Gray;
+                btnEdit.Enabled = false;
+                btnDisable.Enabled = false;
+                btnRemove.Enabled = false;
+            }
         }
     }
 }
