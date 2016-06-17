@@ -169,7 +169,6 @@
             this.btnFoto.TabIndex = 112;
             this.btnFoto.Text = "Abrir Imagen";
             this.btnFoto.UseVisualStyleBackColor = true;
-            this.btnFoto.Visible = false;
             this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // txtFoto
@@ -179,7 +178,6 @@
             this.txtFoto.Name = "txtFoto";
             this.txtFoto.Size = new System.Drawing.Size(130, 20);
             this.txtFoto.TabIndex = 110;
-            this.txtFoto.Visible = false;
             // 
             // label8
             // 

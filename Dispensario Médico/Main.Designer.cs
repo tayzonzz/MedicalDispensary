@@ -97,7 +97,7 @@
             // pbUser
             // 
             this.pbUser.Image = global::Dispensario_Médico.Properties.Resources.Foto;
-            this.pbUser.Location = new System.Drawing.Point(773, 27);
+            this.pbUser.Location = new System.Drawing.Point(773, 41);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(76, 90);
             this.pbUser.TabIndex = 7;

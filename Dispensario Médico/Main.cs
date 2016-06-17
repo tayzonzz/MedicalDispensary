@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ namespace Dispensario_Médico
 {
     public partial class Main : Form
     {
+        ValidacionesInicializaciones frmVI = new ValidacionesInicializaciones();
+
         public Main()
         {
             InitializeComponent();
@@ -55,6 +59,21 @@ namespace Dispensario_Médico
                 btnReportes.Enabled = true;
                 btnServicios.Enabled = true;
             }
+            
+            SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "'", frmVI.conn);
+            frmVI.conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                byte[] data = (byte[])dr["Foto"];
+                MemoryStream stream = new MemoryStream(data);
+                Bitmap bitmap = new Bitmap(stream);
+
+                pbUser.Image = bitmap;
+            }
+
+            frmVI.conn.Close();
         }
 
         private void btnSignOut_Click(object sender, EventArgs e)
