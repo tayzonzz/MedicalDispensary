@@ -15,6 +15,7 @@ namespace Dispensario_Médico
     public partial class ValidacionesInicializaciones : Form
     {
         public SqlConnection conn = new SqlConnection("Data Source='INNOVA\\SQLEXPRESS2';initial catalog=Dispensario;integrated security=True;");
+        SqlConnection conn2 = new SqlConnection("Data Source='INNOVA\\SQLEXPRESS2';initial catalog=Dispensario;integrated security=True;");
         SqlCommand cmd;
         public Services service;
         public int x = 0;
@@ -31,8 +32,8 @@ namespace Dispensario_Médico
 
             try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT TOP 1 Identificador FROM " + entity + " ORDER BY Identificador DESC", conn);
+                conn2.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 Identificador FROM " + entity + " ORDER BY Identificador DESC", conn2);
                 if (Convert.ToInt32(cmd.ExecuteScalar()) < 1)
                 {
                     identifier = 1;
@@ -46,7 +47,7 @@ namespace Dispensario_Médico
             {
 
             }
-            conn.Close();
+            conn2.Close();
 
             return identifier.ToString();
         }
@@ -56,10 +57,10 @@ namespace Dispensario_Médico
             int id = -1;
             bool x = true;
 
-            cmd = new SqlCommand("SELECT Identificador FROM " + entidad + " WHERE " + nombre_atributo + " = '" + valor_atributo + "'", conn);
+            cmd = new SqlCommand("SELECT Identificador FROM " + entidad + " WHERE " + nombre_atributo + " = '" + valor_atributo + "'", conn2);
             SqlDataReader dr;
 
-            conn.Open();
+            conn2.Open();
 
             if (cmd.ExecuteNonQuery() < 1)
             {
@@ -72,7 +73,7 @@ namespace Dispensario_Médico
                 }
             }
 
-            conn.Close();
+            conn2.Close();
 
             return id;
         }
@@ -82,10 +83,10 @@ namespace Dispensario_Médico
             string result = String.Empty;
             bool x = true;
 
-            cmd = new SqlCommand("SELECT " + nombre_atributo + " FROM " + entidad + " WHERE Identificador = " + id + "", conn);
+            cmd = new SqlCommand("SELECT " + nombre_atributo + " FROM " + entidad + " WHERE Identificador = " + id + "", conn2);
             SqlDataReader dr;
 
-            conn.Open();
+            conn2.Open();
 
             if (cmd.ExecuteNonQuery() < 1)
             {
@@ -97,7 +98,7 @@ namespace Dispensario_Médico
                 }
             }
 
-            conn.Close();
+            conn2.Close();
 
             return result;
         }

@@ -33,5 +33,14 @@ namespace Dispensario_Médico.Properties {
                 return ((string)(this["DispensarioConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        public string DispensarioConnectionString2 {
+            get {
+                return ((string)(this["DispensarioConnectionString2"]));
+            }
+        }
     }
 }

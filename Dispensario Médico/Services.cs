@@ -597,7 +597,7 @@ namespace Dispensario_Médico
 
             btnEdit.Enabled = true;
             btnRemove.Enabled = true;
-            if (selectedRow.Cells["Estado"].Value.ToString() == "Activado")
+            if (selectedRow.Cells["Estado"].Value.ToString() == "Activado" || selectedRow.Cells["Estado"].Value.ToString() == "Activado    ")
             {
                 btnDisable.Enabled = true;
                 btnDisable.Cursor = Cursors.Hand;

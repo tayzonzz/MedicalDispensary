@@ -49,7 +49,8 @@ namespace Dispensario_Médico
                             frmMain.lbUserName.Text = dr["Username"].ToString();
 
                             int i = Convert.ToInt32(dr["Tipo"]);
-                            frmMain.lbUserType.Text = frmVI.buscarValorAtributo(Convert.ToInt32(dr["Tipo"]), "Tipo_Usuario", "Descripcion");
+
+                            frmMain.lbUserType.Text = frmVI.buscarValorAtributo(i, "Tipo_Usuario", "Descripcion");
                             frmMain.Show();
                             //frmMain.pbUser.Image = byteArrayToImage((byte[])dr["Foto"]);
 

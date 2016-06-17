@@ -1725,7 +1725,7 @@ namespace Dispensario_Médico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MedicoRow AddMedicoRow(string Nombre, int Cedula, string Tanda, string Especialidad, string Estado) {
+            public MedicoRow AddMedicoRow(string Nombre, string Cedula, string Tanda, string Especialidad, string Estado) {
                 MedicoRow rowMedicoRow = ((MedicoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1778,7 +1778,7 @@ namespace Dispensario_Médico {
                 base.Columns.Add(this.columnIdentificador);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnCedula = new global::System.Data.DataColumn("Cedula", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnCedula = new global::System.Data.DataColumn("Cedula", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCedula);
                 this.columnTanda = new global::System.Data.DataColumn("Tanda", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTanda);
@@ -4276,9 +4276,9 @@ namespace Dispensario_Médico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Cedula {
+            public string Cedula {
                 get {
-                    return ((int)(this[this.tableMedico.CedulaColumn]));
+                    return ((string)(this[this.tableMedico.CedulaColumn]));
                 }
                 set {
                     this[this.tableMedico.CedulaColumn] = value;

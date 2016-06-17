@@ -1,0 +1,12 @@
+Proyecto Dispensario Médico
+
+Integrantes
+Jorge Andrés Pérez Montás	2014-2234
+Anthonella Vásquez Hernández	2014-2578
+Carlos Manuel Robles Calderón	2014-2993
+
+El archivo script.sql, es el script para crear la base de datos "Dispensario".
+
+Se necesita cambiar el servidor de la base de datos en la clase ValidacionesInicializaciones y en la parte de config.
+
+La parte de Consultas y Reportes aún no funcionan, ni tampoco está terminada la parte de guardar imágenes.
