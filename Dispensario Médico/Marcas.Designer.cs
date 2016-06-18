@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Marcas));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.lbTitle = new System.Windows.Forms.Label();
@@ -177,6 +178,7 @@
             this.ClientSize = new System.Drawing.Size(758, 561);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(774, 600);
             this.MinimumSize = new System.Drawing.Size(774, 600);
             this.Name = "Marcas";
