@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnConsultas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -138,9 +139,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultas);
             this.Controls.Add(this.btnServicios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Medical Blablabla";
+            this.Text = "Dispensario Médico";
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.ResumeLayout(false);

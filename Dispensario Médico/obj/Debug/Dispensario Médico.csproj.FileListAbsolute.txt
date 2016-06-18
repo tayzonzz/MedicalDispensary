@@ -61,3 +61,4 @@ C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dis
 C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Users.resources
 C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario_Médico.Visitas.resources
 C:\Users\Yasmín\Documents\Dispensario Médico\Dispensario Médico\obj\Debug\Dispensario Médico.csproj.GenerateResource.Cache
+C:\Users\Manuel\Source\Repos\MedicalDispensary\Dispensario Médico\bin\Debug\Dispensario Médico.exe.config
