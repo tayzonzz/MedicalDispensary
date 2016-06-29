@@ -20,6 +20,7 @@ namespace Dispensario_Médico
         public bool add = false;
         public string user = String.Empty;
         public bool check = false;
+        public bool mismoUsuario = false;
 
         public Users()
         {
@@ -118,7 +119,7 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@Ocupacion", txtOcupacion.Text);
                         cmd.Parameters.AddWithValue("@TipoUsuario", idTipoUsuario);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
-                        //cmd.Parameters.AddWithValue("@FotoPerfil", pbFotoPerfil.Image);
+                        cmd.Parameters.AddWithValue("@FotoPerfil", pbFotoPerfil.Image);
 
                         cmd.ExecuteNonQuery();
 
@@ -141,7 +142,7 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@TipoUsuario", idTipoUsuario);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
 
-                        if (pbFotoPerfil.Image != null)
+                        if (pbFotoPerfil != null)
                         {
                             // Stream usado como buffer
                             System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -154,10 +155,19 @@ namespace Dispensario_Médico
 
                             cmd.ExecuteNonQuery();
                         }
-
-
+                        
                         MessageBox.Show("Se ha actualizado satisfactoriamente.");
+                        /*
+                        if (mismoUsuario || result == frmVI.buscarValorAtributo(Convert.ToInt32(txtIdentificador.Text), "Usuario", "Contrasenia"))
+                        {
+                            MessageBox.Show("Debido a que ha cambiado datos del estado, usuario y/o contraseña, debe volver a loguearse.");
 
+                            Login login = new Login();
+                            login.Show();
+                            service.Close();
+                            this.Close();
+                        }
+                        */
                     }
 
                     service.btnUsers.PerformClick();
@@ -203,6 +213,7 @@ namespace Dispensario_Médico
             if (result == DialogResult.OK)
             {
                 pbFotoPerfil.Image = Image.FromFile(dialog.FileName);
+                pbFotoPerfil.Visible = true;
             }
         }
 
@@ -210,7 +221,8 @@ namespace Dispensario_Médico
         {
             txtNombres.Text = String.Empty;
             txtApellido.Text = String.Empty;
-            txtFoto.Text = String.Empty;
+            pbFotoPerfil = null;
+            pbFotoPerfil.Visible = false;
             txtOcupacion.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtUsuario.Text = String.Empty;

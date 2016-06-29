@@ -35,10 +35,10 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClean = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pbFotoPerfil = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnFoto = new System.Windows.Forms.Button();
-            this.txtFoto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -113,10 +113,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.pbFotoPerfil);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.btnFoto);
-            this.groupBox3.Controls.Add(this.txtFoto);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.cbTipoUsuario);
             this.groupBox3.Controls.Add(this.txtUsuario);
@@ -142,19 +142,27 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(516, 356);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 118;
+            this.label11.Text = "Vista Previa";
+            // 
             // pbFotoPerfil
             // 
-            this.pbFotoPerfil.Location = new System.Drawing.Point(528, 424);
+            this.pbFotoPerfil.Location = new System.Drawing.Point(507, 372);
             this.pbFotoPerfil.Name = "pbFotoPerfil";
-            this.pbFotoPerfil.Size = new System.Drawing.Size(88, 50);
+            this.pbFotoPerfil.Size = new System.Drawing.Size(81, 80);
             this.pbFotoPerfil.TabIndex = 117;
             this.pbFotoPerfil.TabStop = false;
-            this.pbFotoPerfil.Visible = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 333);
+            this.label9.Location = new System.Drawing.Point(32, 328);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 115;
@@ -171,14 +179,6 @@
             this.btnFoto.UseVisualStyleBackColor = true;
             this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
-            // txtFoto
-            // 
-            this.txtFoto.Enabled = false;
-            this.txtFoto.Location = new System.Drawing.Point(486, 398);
-            this.txtFoto.Name = "txtFoto";
-            this.txtFoto.Size = new System.Drawing.Size(130, 20);
-            this.txtFoto.TabIndex = 110;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -187,13 +187,12 @@
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 111;
             this.label8.Text = "Foto de Perfil";
-            this.label8.Visible = false;
             // 
             // cbTipoUsuario
             // 
             this.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoUsuario.FormattingEnabled = true;
-            this.cbTipoUsuario.Location = new System.Drawing.Point(487, 330);
+            this.cbTipoUsuario.Location = new System.Drawing.Point(487, 325);
             this.cbTipoUsuario.MaxDropDownItems = 12;
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(213, 21);
@@ -229,7 +228,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(119, 330);
+            this.txtApellido.Location = new System.Drawing.Point(119, 325);
             this.txtApellido.MaxLength = 99;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(214, 20);
@@ -239,7 +238,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(384, 333);
+            this.label7.Location = new System.Drawing.Point(384, 328);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
             this.label7.TabIndex = 103;
@@ -420,9 +419,9 @@
         public System.Windows.Forms.TextBox txtPassword;
         public System.Windows.Forms.TextBox txtApellido;
         public System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        public System.Windows.Forms.TextBox txtFoto;
         public System.Windows.Forms.PictureBox pbFotoPerfil;
         private System.Windows.Forms.ErrorProvider epNombreUsuario;
         private System.Windows.Forms.ErrorProvider epPassword;
+        private System.Windows.Forms.Label label11;
     }
 }

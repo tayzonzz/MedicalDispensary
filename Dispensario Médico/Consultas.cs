@@ -28,6 +28,9 @@ namespace Dispensario_Médico
         private void btnBack_Click(object sender, EventArgs e)
         {
             Main main = new Main();
+            main.lbUserName.Text = lbUsuario.Text;
+            main.lbUserType.Text = lbTipoUsuario.Text;
+            main.pbUser.Image = pbFoto.Image;
             main.Show();
             this.Close();
         }

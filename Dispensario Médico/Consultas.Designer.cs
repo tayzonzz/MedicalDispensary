@@ -258,6 +258,7 @@
             this.dtpFechaMin.Name = "dtpFechaMin";
             this.dtpFechaMin.Size = new System.Drawing.Size(175, 20);
             this.dtpFechaMin.TabIndex = 22;
+            this.dtpFechaMin.Value = new System.DateTime(2015, 12, 25, 23, 59, 59, 0);
             // 
             // label5
             // 
