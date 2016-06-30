@@ -150,7 +150,13 @@ namespace Dispensario_Médico
             dgvConsulta.Refresh();
             frmVI.conn.Close();
 
-            if(oTable.Rows.Count > 0)
+            comprobarSiHayFilas(oTable);
+            dgvConsulta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void comprobarSiHayFilas(DataTable oTable)
+        {
+            if (oTable.Rows.Count > 0)
             {
                 ejecutarQuery = true;
             }
@@ -158,8 +164,6 @@ namespace Dispensario_Médico
             {
                 ejecutarQuery = false;
             }
-
-            dgvConsulta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnBusquedaNormal_Click(object sender, EventArgs e)
@@ -169,58 +173,50 @@ namespace Dispensario_Médico
 
                 if (cbCampo.SelectedItem == null)
                 {
+                    string sSQL = "SELECT * FROM MARCA WHERE 1 = 2";
 
                     if (cbEntidad.SelectedIndex == 0)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA";
                     }
                     else if (cbEntidad.SelectedIndex == 1)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, Dosis AS Dósis, id_tipoFarmaco AS [Tipo de Fármaco], id_ubicacion AS Ubicación, id_marca AS Marca, FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, Dosis AS Dósis, id_tipoFarmaco AS [Tipo de Fármaco], id_ubicacion AS Ubicación, id_marca AS Marca, FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO";
                     }
                     else if (cbEntidad.SelectedIndex == 2)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO";
                     }
                     else if (cbEntidad.SelectedIndex == 3)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO";
                     }
                     else if (cbEntidad.SelectedIndex == 4)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, No_Carnet AS [Número de Carnet], Tipo_Paciente AS [Tipo de Paciente], FechaRegistro AS [Fecha de Registro] FROM PACIENTE";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, No_Carnet AS [Número de Carnet], Tipo_Paciente AS [Tipo de Paciente], FechaRegistro AS [Fecha de Registro] FROM PACIENTE";
                     }
                     else if (cbEntidad.SelectedIndex == 5)
                     {
-                        string sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
                     }
                     else if (cbEntidad.SelectedIndex == 6)
                     {
-                        string sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE";
                     }
                     else if (cbEntidad.SelectedIndex == 7)
                     {
-                        string sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_USUARIO";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_USUARIO";
                     }
                     else if (cbEntidad.SelectedIndex == 8)
                     {
-                        string sSQL = "SELECT Identificador, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "SELECT Identificador, Descripcion AS Descripción, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION";
                     }
                     else if (cbEntidad.SelectedIndex == 9)
                     {
-                        string sSQL = "Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador";
-                        ejecutarConsultaBD(sSQL);
+                        sSQL = "Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador";
                     }
 
+                    ejecutarConsultaBD(sSQL);
                 }
 
 
@@ -230,370 +226,156 @@ namespace Dispensario_Médico
 
                     if (cbEntidad.SelectedIndex == 0 && campoSeleccionado != "FechaRegistro")
                     {
-                        string sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-                        ejecutarConsultaBD(sSQL);
-
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Marca", "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA");
                     }
                     else if (cbEntidad.SelectedIndex == 0 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM MARCA");
                     }
 
                     if (cbEntidad.SelectedIndex == 1 && campoSeleccionado != "FechaRegistro")
                     {
-                        //cmd = new SqlCommand("sp_BuscarMedicamento", frmVI.conn);
                         int i;
-                        string sSQL;
+                        string sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
                         string criterioBusqueda = txtCriterioBusqueda.Text;
 
-                        if (campoSeleccionado == "id_tipoFarmaco" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        if (campoSeleccionado == "id_tipoFarmaco")
                         {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where f.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by f.Descripcion";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Descripcion", "Identificador", "f", criterioBusqueda, "Medicamento", sSQL);
                         }
-                        else if (campoSeleccionado == "id_tipoFarmaco" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        else if (campoSeleccionado == "id_ubicacion")
                         {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where f.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by f.Identificador";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Descripcion", "Identificador", "u", criterioBusqueda, "Medicamento", sSQL);
                         }
-                        else if (campoSeleccionado == "id_ubicacion" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        else if (campoSeleccionado == "id_marca")
                         {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where u.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by u.Descripcion";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_ubicacion" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where u.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by u.Identificador";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_marca" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where m.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by m.Descripcion";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_marca" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where m.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by m.Identificador";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Descripcion", "Identificador", "m", criterioBusqueda, "Medicamento", sSQL);
                         }
                         else
                         {
-                            sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
-                            sSQL += " where mm." + campoSeleccionado;
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by mm." + campoSeleccionado;
-                            ejecutarConsultaBD(sSQL);
+                            consulta("mm." + campoSeleccionado, criterioBusqueda, "Medicamento", sSQL);
                         }
                     }
                     else if (cbEntidad.SelectedIndex == 1 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS[Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS[Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ", "mm");
                     }
 
                     if (cbEntidad.SelectedIndex == 2 && campoSeleccionado != "FechaRegistro")
                     {
-                        //cmd = new SqlCommand("sp_BuscarMedico", frmVI.conn);
-                        string sSQL = "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-
-                        ejecutarConsultaBD(sSQL);
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Medico", "SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO");
                     }
                     else if (cbEntidad.SelectedIndex == 2 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Estado, Nombre, Cedula AS Cédula, Tanda, Especialidad, FechaRegistro AS [Fecha de Registro] FROM MEDICO");
                     }
+
                     if (cbEntidad.SelectedIndex == 3 && campoSeleccionado != "FechaRegistro")
                     {
-                        //cmd = new SqlCommand("sp_BuscarFarmaco", frmVI.conn);
-                        string sSQL = "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-                        ejecutarConsultaBD(sSQL);
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Farmaco", "SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO");
                     }
                     else if (cbEntidad.SelectedIndex == 3 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Estado, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM FARMACO");
                     }
+
                     if (cbEntidad.SelectedIndex == 4 && campoSeleccionado != "FechaRegistro")
                     {
                         //cmd = new SqlCommand("sp_BuscarPaciente", frmVI.conn);
                         int i;
                         string criterioBusqueda = txtCriterioBusqueda.Text;
-                        string sSQL;
+                        string sSQL = "SELECT p.Identificador, p.Estado, p.Nombre, p.Cedula AS Cédula, p.No_Carnet AS [Número de Carnet], t.Descripcion AS [Tipo de Paciente], p.FechaRegistro AS [Fecha de Registro] FROM PACIENTE p INNER JOIN Tipo_Paciente t ON p.Tipo_Paciente = t.Identificador";
 
                         if (campoSeleccionado == "Tipo_Paciente" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
                         {
-                            sSQL = "SELECT p.Identificador, p.Estado, p.Nombre, p.Cedula AS Cédula, p.No_Carnet AS [Número de Carnet], t.Descripcion AS [Tipo de Paciente], p.FechaRegistro AS [Fecha de Registro] FROM PACIENTE p INNER JOIN Tipo_Paciente t ON p.Tipo_Paciente = t.Identificador";
-                            sSQL += " where t.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by t.Descripcion";
-                            ejecutarConsultaBD(sSQL);
+                            consulta("t.Descripcion", criterioBusqueda, "Tipo_Paciente", sSQL);
                         }
                         else
                         {
-                            sSQL = "SELECT p.Identificador, p.Estado, p.Nombre, p.Cedula AS Cédula, p.No_Carnet AS [Número de Carnet], t.Descripcion AS [Tipo de Paciente], p.FechaRegistro AS [Fecha de Registro] FROM PACIENTE p INNER JOIN Tipo_Paciente t ON p.Tipo_Paciente = t.Identificador";
-                            sSQL += " where p." + campoSeleccionado;
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by p." + campoSeleccionado;
-                            ejecutarConsultaBD(sSQL);
+                            consulta(campoSeleccionado, criterioBusqueda, "Tipo_Paciente", sSQL);
                         }
                     }
                     else if (cbEntidad.SelectedIndex == 4 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT p.Identificador, p.Estado, p.Nombre, p.Cedula AS Cédula, p.No_Carnet AS [Número de Carnet], t.Descripcion AS [Tipo de Paciente], p.FechaRegistro AS [Fecha de Registro] FROM PACIENTE p INNER JOIN Tipo_Paciente t ON p.Tipo_Paciente = t.Identificador where p.FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT p.Identificador, p.Estado, p.Nombre, p.Cedula AS Cédula, p.No_Carnet AS [Número de Carnet], t.Descripcion AS [Tipo de Paciente], p.FechaRegistro AS [Fecha de Registro] FROM PACIENTE p INNER JOIN Tipo_Paciente t ON p.Tipo_Paciente = t.Identificador", "p");
                     }
+
                     if (cbEntidad.SelectedIndex == 5 && campoSeleccionado != "FechaRegistro")
                     {
                         // cmd = new SqlCommand("sp_BuscarVisita", frmVI.conn);
-                        int i;
-                        string sSQL;
+                        string sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
                         string criterioBusqueda = txtCriterioBusqueda.Text;
-
-                        if (campoSeleccionado == "id_Medico" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        
+                        if (campoSeleccionado == "id_Medico")
                         {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where m.nombre";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by m.nombre";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Nombre", "Identificador", "m", criterioBusqueda, "Registro_Visita", sSQL);
                         }
-                        else if (campoSeleccionado == "id_Medico" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        else if (campoSeleccionado == "id_Medicamento")
                         {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where m.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by m.Identificador";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Descripcion", "Identificador", "mm", criterioBusqueda, "Registro_Visita", sSQL);
                         }
-                        else if (campoSeleccionado == "id_Medicamento" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        else if (campoSeleccionado == "id_Paciente")
                         {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where mm.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by mm.Descripcion";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_Medicamento" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where mm.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by mm.Identificador";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_Paciente" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where p.Nombre";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by p.Nombre";
-                            ejecutarConsultaBD(sSQL);
-                        }
-                        else if (campoSeleccionado == "id_Paciente" && (int.TryParse(txtCriterioBusqueda.Text, out i)))
-                        {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where p.Identificador";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by p.Identificador";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Nombre", "Identificador", "p", criterioBusqueda, "Registro_Visita", sSQL);
                         }
                         else
                         {
-                            sSQL = "SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente";
-                            sSQL += " where r." + campoSeleccionado;
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                            sSQL += " order by r." + campoSeleccionado;
-                            ejecutarConsultaBD(sSQL);
+                            consulta(campoSeleccionado, criterioBusqueda, "Registro_Visita", sSQL, "r");
                         }
                     }
                     else if (cbEntidad.SelectedIndex == 5 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente where r.FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT r.Identificador, r.Estado, r.Fecha_Visita AS [Fecha de Visita], r.Hora_Visita AS [Hora de Visita], r.Sintomas AS [Síntomas], r.Recomendaciones, m.Nombre AS Médico, mm.Descripcion AS Medicamento, p.Nombre AS Paciente, r.FechaRegistro AS [Fecha de Registro] FROM REGISTRO_VISITA r INNER JOIN Medico m ON r.id_Medico = m.Identificador INNER JOIN Medicamento mm ON r.id_Medicamento = mm.Identificador INNER JOIN Paciente p ON p.Identificador = r.id_Paciente", "r");
                     }
+
                     if (cbEntidad.SelectedIndex == 6 && campoSeleccionado != "FechaRegistro")
                     {
-                        // cmd = new SqlCommand("sp_BuscarTipoPaciente", frmVI.conn);
-                        string sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-                        ejecutarConsultaBD(sSQL);
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Tipo_Paciente", "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE");
                     }
                     else if (cbEntidad.SelectedIndex == 6 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_PACIENTE");
                     }
+
                     if (cbEntidad.SelectedIndex == 7 && campoSeleccionado != "FechaRegistro")
                     {
-                        // cmd = new SqlCommand("sp_BuscarTipoUsuario", frmVI.conn);
-                        string sSQL = "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_USUARIO ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-                        ejecutarConsultaBD(sSQL);
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Tipo_Usuario", "SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_USUARIO");
                     }
                     else if (cbEntidad.SelectedIndex == 7 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS [Fecha de Registro] FROM TIPO_USUARIO where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Descripcion AS Descripción, FechaRegistro AS[Fecha de Registro] FROM TIPO_USUARIO");
                     }
+
                     if (cbEntidad.SelectedIndex == 8 && campoSeleccionado != "FechaRegistro")
                     {
-                        // cmd = new SqlCommand("sp_BuscarUbicacion", frmVI.conn);
-                        string sSQL = "SELECT Identificador, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION ";
-                        sSQL += " where " + campoSeleccionado;
-                        sSQL += " like ";
-                        if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                        else sSQL += "'" + txtCriterioBusqueda.Text + "%'";
-                        sSQL += " order by " + campoSeleccionado;
-                        ejecutarConsultaBD(sSQL);
+                        consulta(campoSeleccionado, txtCriterioBusqueda.Text, "Ubicacion", "SELECT Identificador, Descripcion AS Descripción, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION ");
                     }
                     else if (cbEntidad.SelectedIndex == 8 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("SELECT Identificador, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION where FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("SELECT Identificador, Descripcion AS Descripción, Estado, Estante, Tramo, Celda, FechaRegistro AS [Fecha de Registro] FROM UBICACION");
                     }
+
                     if (cbEntidad.SelectedIndex == 9 && campoSeleccionado != "FechaRegistro")
                     {
-                        //cmd = new SqlCommand("sp_BuscarUsuario", frmVI.conn);
-                        int i;
                         string criterioBusqueda = txtCriterioBusqueda.Text;
+                        string sSQL = "Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador";
 
-                        if (campoSeleccionado == "Tipo_Usuario" && !(int.TryParse(txtCriterioBusqueda.Text, out i)))
+                        if (campoSeleccionado == "Tipo_Usuario")
                         {
-                            string sSQL = "Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador";
-                            sSQL += " where t.Descripcion";
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + criterioBusqueda + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by t.Descripcion";
-                            ejecutarConsultaBD(sSQL);
+                            consultaDosCondiciones("Descripcion", "Identificador", "t", criterioBusqueda, "Usuario", sSQL);
+                        }
+                        else if (campoSeleccionado != "Fecha_Nacimiento")
+                        {
+                            consulta(campoSeleccionado, criterioBusqueda, "Usuario", sSQL, "u");
                         }
                         else if(campoSeleccionado == "Fecha_Nacimiento")
                         {
-                            SqlDataAdapter sdf = new SqlDataAdapter("SELECT u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador where u.Fecha_Nacimiento between '" + dtpFechaNacimiento.Value.ToString() + "' and '" + dtpFechaNacimiento.Value.ToString() + "'", frmVI.conn);
-                            DataTable sd = new DataTable();
-                            sdf.Fill(sd);
-                            dgvConsulta.DataSource = sd;
-                        }
-                        else
-                        {
-                            string sSQL = "Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador";
-                            sSQL += " where u." + campoSeleccionado;
-                            sSQL += " like ";
-                            if (x == 0) sSQL += "'%" + txtCriterioBusqueda.Text + "%'";
-                            else sSQL += "'" + criterioBusqueda + "%'";
-                            sSQL += " order by u." + campoSeleccionado;
-                            ejecutarConsultaBD(sSQL);
+                            consultaFecha(sSQL, "u", "Fecha_Nacimiento");
                         }
                     }
                     else if (cbEntidad.SelectedIndex == 9 && campoSeleccionado == "FechaRegistro")
                     {
-                        SqlDataAdapter sdf = new SqlDataAdapter("u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador where u.FechaRegistro between'" + dtpFechaMin.Value.ToString() + "'and'" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
-                        DataTable sd = new DataTable();
-                        sdf.Fill(sd);
-                        dgvConsulta.DataSource = sd;
-
+                        consultaFecha("Select u.Identificador, u.Estado, u.Nombre_Usuario AS [Nombre de Usuario], u.Primer_nombre + ' ' + u.Otros_Nombres + ' ' + u.Primer_Apellido + ' ' + u.Segundo_Apellido AS [Nombre Completo], u.Fecha_Nacimiento AS [Fecha de Nacimiento], u.Ocupacion AS Ocupación, t.Descripcion AS [Tipo de Usuario], u.FechaRegistro AS [Fecha de Registro], Foto AS [Foto de Perfil] from Usuario u INNER JOIN Tipo_Usuario t ON u.Tipo_Usuario = t.Identificador", "u");
                     }
                 }
 
@@ -609,7 +391,63 @@ namespace Dispensario_Médico
             }
 
         }
-        
+
+        private void consultaDosCondiciones(string campo1, string campo2, string apodo1, string buscar, string entidad, string query)
+        {
+            query += " where " + apodo1 + "." + campo1;
+            query += " like ";
+            if (x == 0) query += "'%" + buscar + "%'";
+            else query += "'" + buscar + "%'";
+            query += "OR " + apodo1 + "." + campo2;
+            query += " like ";
+            if (x == 0) query += "'%" + buscar + "%'";
+            else query += "'" + buscar + "%'";
+            query += " order by " + apodo1 + "." + campo2;
+            ejecutarConsultaBD(query);
+        }
+        private void consulta(string campo, string buscar, string entidad, string query, string apodo)
+        {
+            query += " where " + apodo + "." + campo;
+            query += " like ";
+            if (x == 0) query += "'%" + buscar + "%'";
+            else query += "'" + buscar + "%'";
+            query += " order by " + apodo + "." + campo;
+            ejecutarConsultaBD(query);
+        }
+        private void consulta(string campo, string buscar, string entidad, string query)
+        {
+            query += " where " + campo;
+            query += " like ";
+            if (x == 0) query += "'%" + buscar + "%'";
+            else query += "'" + buscar + "%'";
+            query += " order by " + campo;
+            ejecutarConsultaBD(query);
+        }
+        private void consultaFecha(string query, string apodo, string atributo)
+        {
+            SqlDataAdapter sdf = new SqlDataAdapter(query + " where " + apodo + "." + atributo + " between'" + dtpFechaNacimiento.Value.ToString() + "' and '" + dtpFechaNacimiento.Value.ToString() + "'", frmVI.conn);
+            DataTable sd = new DataTable();
+            sdf.Fill(sd);
+            dgvConsulta.DataSource = sd;
+            comprobarSiHayFilas(sd);
+        }
+        private void consultaFecha(string query, string apodo)
+        {
+            SqlDataAdapter sdf = new SqlDataAdapter(query + " where " + apodo + ".FechaRegistro between '" + dtpFechaMin.Value.ToString() + "' and '" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
+            DataTable sd = new DataTable();
+            sdf.Fill(sd);
+            dgvConsulta.DataSource = sd;
+            comprobarSiHayFilas(sd);
+        }
+        private void consultaFecha(string query)
+        {
+            SqlDataAdapter sdf = new SqlDataAdapter(query + " where FechaRegistro between '" + dtpFechaMin.Value.ToString() + "' and '" + dtpFechaMax.Value.ToString() + "'", frmVI.conn);
+            DataTable sd = new DataTable();
+            sdf.Fill(sd);
+            dgvConsulta.DataSource = sd;
+            comprobarSiHayFilas(sd);
+        }
+
         private void btnOpcionBusqueda_Click(object sender, EventArgs e)
         {
             if(x == 0)
@@ -633,7 +471,6 @@ namespace Dispensario_Médico
                 dtpFechaMin.Enabled = true;
                 txtCriterioBusqueda.Text = "0";
                 btnOpcionBusqueda.Enabled = false;
-                
             }
             else
             {
@@ -643,6 +480,7 @@ namespace Dispensario_Médico
                 btnOpcionBusqueda.Enabled = true;
                 txtCriterioBusqueda.Clear();
             }
+
             if(cbCampo.SelectedItem.ToString() == null) txtCriterioBusqueda.Enabled = true;
             if (cbCampo.SelectedItem.ToString() == "Fecha de Nacimiento")
             {
@@ -656,23 +494,27 @@ namespace Dispensario_Médico
                 txtCriterioBusqueda.Visible = true;
                 btnOpcionBusqueda.Enabled = true;
             }
-
         }
+
         private string buscarCampoSeleccionado(string campoSeleccionado)
         {
             if (cbCampo.SelectedItem.ToString() == "Identificador") campoSeleccionado = "Identificador";
             else if (cbCampo.SelectedItem.ToString() == "Descripción") campoSeleccionado = "Descripcion";
+            else if (cbCampo.SelectedItem.ToString() == "Marca") campoSeleccionado = "id_marca";
             else if (cbCampo.SelectedItem.ToString() == "Estado") campoSeleccionado = "Estado";
             else if (cbCampo.SelectedItem.ToString() == "Fecha de Registro") campoSeleccionado = "FechaRegistro";
             else if (cbCampo.SelectedItem.ToString() == "Dósis") campoSeleccionado = "Dosis";
-            else if (cbCampo.SelectedItem.ToString() == "Tipo de Fármaco") campoSeleccionado = "Id_tipoFarmaco";
-            else if (cbCampo.SelectedItem.ToString() == "Ubicación") campoSeleccionado = "Ubicacion";
+            else if (cbCampo.SelectedItem.ToString() == "Tipo de Fármaco") campoSeleccionado = "id_tipoFarmaco";
+            else if (cbCampo.SelectedItem.ToString() == "Ubicación")
+                if (cbEntidad.SelectedItem.ToString() == "Medicamentos") campoSeleccionado = "id_ubicacion";
+                else campoSeleccionado = "Ubicacion";
             else if (cbCampo.SelectedItem.ToString() == "Nombre") campoSeleccionado = "Nombre";
             else if (cbCampo.SelectedItem.ToString() == "Cédula") campoSeleccionado = "cedula";
             else if (cbCampo.SelectedItem.ToString() == "Síntomas") campoSeleccionado = "sintomas";
             else if (cbCampo.SelectedItem.ToString() == "Tanda") campoSeleccionado = "tanda";
             else if (cbCampo.SelectedItem.ToString() == "Número de Carnet") campoSeleccionado = "No_Carnet";
             else if (cbCampo.SelectedItem.ToString() == "Tipo de Paciente") campoSeleccionado = "Tipo_Paciente";
+            else if (cbCampo.SelectedItem.ToString() == "Paciente") campoSeleccionado = "id_Paciente";
             else if (cbCampo.SelectedItem.ToString() == "Tipo de Usuario") campoSeleccionado = "Tipo_Usuario";
             else if (cbCampo.SelectedItem.ToString() == "Médico") campoSeleccionado = "id_Medico";
             else if (cbCampo.SelectedItem.ToString() == "Fecha de Visita") campoSeleccionado = "Fecha_Visita";
@@ -693,6 +535,16 @@ namespace Dispensario_Médico
             else if (cbCampo.SelectedItem.ToString() == "Ocupacion") campoSeleccionado = "Ocupacion";
 
             return campoSeleccionado;
+        }
+
+        private void txtCriterioBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string c = cbCampo.SelectedItem.ToString();
+
+            if (c == "Primer Nombre" || c == "Otros Nombres" || c == "Primer Apellido" || c == "Segundo Apellido" || c == "Ocupacion" || c == "Estado" || c == "Descripción" || c == "Síntomas" || c == "Recomendaciones" || c == "Nombre" || c == "Número de Carnet" || c == "Especialidad" || c == "Dósis")
+            {
+                frmVI.OnlyLetters(e);
+            }
         }
     }
 }

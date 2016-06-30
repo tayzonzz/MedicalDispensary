@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCriterioBusqueda = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.btnOpcionBusqueda = new System.Windows.Forms.Button();
             this.lbOpcionBusqueda = new System.Windows.Forms.Label();
             this.dtpFechaMax = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +50,6 @@
             this.lbUsuario = new System.Windows.Forms.Label();
             this.lbTipoUsuario = new System.Windows.Forms.Label();
             this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -185,6 +185,7 @@
             this.txtCriterioBusqueda.Name = "txtCriterioBusqueda";
             this.txtCriterioBusqueda.Size = new System.Drawing.Size(202, 20);
             this.txtCriterioBusqueda.TabIndex = 3;
+            this.txtCriterioBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCriterioBusqueda_KeyPress);
             // 
             // groupBox2
             // 
@@ -206,6 +207,18 @@
             this.groupBox2.Size = new System.Drawing.Size(832, 111);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpFechaNacimiento.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtpFechaNacimiento.CustomFormat = "dd MMM yyyy ";
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(627, 14);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(202, 20);
+            this.dtpFechaNacimiento.TabIndex = 27;
+            this.dtpFechaNacimiento.Visible = false;
             // 
             // btnOpcionBusqueda
             // 
@@ -298,18 +311,6 @@
             this.pbFoto.TabStop = false;
             this.pbFoto.Visible = false;
             // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dtpFechaNacimiento.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dtpFechaNacimiento.CustomFormat = "dd MMM yyyy ";
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(627, 14);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(202, 20);
-            this.dtpFechaNacimiento.TabIndex = 27;
-            this.dtpFechaNacimiento.Visible = false;
-            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,8 +339,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBack;
@@ -362,5 +361,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbOpcionBusqueda;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.DataGridView dgvConsulta;
     }
 }
