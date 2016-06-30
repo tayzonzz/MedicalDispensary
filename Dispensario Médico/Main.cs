@@ -59,18 +59,21 @@ namespace Dispensario_Médico
                 btnReportes.Enabled = true;
                 btnServicios.Enabled = true;
             }
-            
-            SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "'", frmVI.conn);
+
+            SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "' AND Foto IS NOT NULL", frmVI.conn);
             frmVI.conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
-                byte[] data = (byte[])dr["Foto"];
-                MemoryStream stream = new MemoryStream(data);
-                Bitmap bitmap = new Bitmap(stream);
+                if (dr["Foto"].ToString() != null)
+                {
+                    byte[] data = (byte[])dr["Foto"];
+                    MemoryStream stream = new MemoryStream(data);
+                    Bitmap bitmap = new Bitmap(stream);
 
-                pbUser.Image = bitmap;
+                    pbUser.Image = bitmap;
+                }
             }
 
             frmVI.conn.Close();
