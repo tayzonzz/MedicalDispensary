@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Services));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUsers = new System.Windows.Forms.Button();
             this.btnVisitas = new System.Windows.Forms.Button();
@@ -445,6 +446,7 @@
             this.Controls.Add(this.lbServiciosTitle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1033, 672);
             this.MinimumSize = new System.Drawing.Size(1033, 672);
             this.Name = "Services";
