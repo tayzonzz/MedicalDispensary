@@ -99,5 +99,37 @@ namespace Dispensario_Médico
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
         }
+
+        private void pacientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ReportDocument cryRpt = new ReportDocument();
+            TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
+            TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
+            ConnectionInfo crConnectionInfo = new ConnectionInfo();
+            Tables CrTables;
+
+            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpInventario.rpt");
+
+            crConnectionInfo.ServerName = "Jose-Lap";
+            crConnectionInfo.DatabaseName = "Dispensario";
+            crConnectionInfo.UserID = "sa";
+            crConnectionInfo.Password = "123456";
+
+            CrTables = cryRpt.Database.Tables;
+            foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
+            {
+                crtableLogoninfo = CrTable.LogOnInfo;
+                crtableLogoninfo.ConnectionInfo = crConnectionInfo;
+                CrTable.ApplyLogOnInfo(crtableLogoninfo);
+            }
+
+            crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

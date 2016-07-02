@@ -39,10 +39,7 @@ namespace Dispensario_Médico
             this.visitasMedicasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.medicamentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarAPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarAEXCELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -86,8 +83,7 @@ namespace Dispensario_Médico
             this.mEdicosToolStripMenuItem1,
             this.visitasMedicasToolStripMenuItem1,
             this.medicamentosToolStripMenuItem1,
-            this.pacientesToolStripMenuItem1,
-            this.inventarioToolStripMenuItem1});
+            this.pacientesToolStripMenuItem1});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -118,33 +114,14 @@ namespace Dispensario_Médico
             this.pacientesToolStripMenuItem1.Name = "pacientesToolStripMenuItem1";
             this.pacientesToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.pacientesToolStripMenuItem1.Text = "Pacientes";
-            // 
-            // inventarioToolStripMenuItem1
-            // 
-            this.inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
-            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
-            this.inventarioToolStripMenuItem1.Text = "Inventario";
+            this.pacientesToolStripMenuItem1.Click += new System.EventHandler(this.pacientesToolStripMenuItem1_Click);
             // 
             // exportarToolStripMenuItem
             // 
-            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAPDFToolStripMenuItem,
-            this.exportarAEXCELToolStripMenuItem});
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.exportarToolStripMenuItem.Text = "Exportar";
-            // 
-            // exportarAPDFToolStripMenuItem
-            // 
-            this.exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
-            this.exportarAPDFToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
-            // 
-            // exportarAEXCELToolStripMenuItem
-            // 
-            this.exportarAEXCELToolStripMenuItem.Name = "exportarAEXCELToolStripMenuItem";
-            this.exportarAEXCELToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.exportarAEXCELToolStripMenuItem.Text = "Exportar a EXCEL";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.exportarToolStripMenuItem.Text = "Aloha!";
+            this.exportarToolStripMenuItem.Click += new System.EventHandler(this.exportarToolStripMenuItem_Click);
             // 
             // Reportes
             // 
@@ -177,9 +154,6 @@ namespace Dispensario_Médico
         private System.Windows.Forms.ToolStripMenuItem visitasMedicasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem medicamentosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarAPDFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarAEXCELToolStripMenuItem;
     }
 }
