@@ -37,9 +37,11 @@ namespace Dispensario_Médico.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        public string DispensarioConnectionString2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Jose-Lap;Initial Catalog=Dispensario;Integrated Security=True;User ID" +
+            "=sa;Password=123456")]
+        public string ConexionDosDiespensario {
             get {
-                return ((string)(this["DispensarioConnectionString2"]));
+                return ((string)(this["ConexionDosDiespensario"]));
             }
         }
     }

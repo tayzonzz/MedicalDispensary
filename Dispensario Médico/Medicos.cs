@@ -13,7 +13,6 @@ namespace Dispensario_Médico
 {
     public partial class Medicos : Form
     {
-        SqlConnection conn = new SqlConnection("Data Source='INNOVA\\SQLEXPRESS2';initial catalog=Dispensario;integrated security=True;");
         SqlCommand cmd;
         ValidacionesInicializaciones frmVI = new ValidacionesInicializaciones();
         public Services service;
@@ -29,12 +28,12 @@ namespace Dispensario_Médico
         {
             try
             {
-                conn.Open();
+                frmVI.conn.Open();
                 if (cedulachecked && cbEstado.SelectedItem != null && cbTanda.SelectedItem != null && txtEspecialidad.Text != String.Empty && txtCedula.Text != String.Empty && txtNombre.Text != String.Empty)
                 {
                     if(Convert.ToInt32(frmVI.InicializarAdd("Medico")) <= Convert.ToInt32(txtIdentificador.Text))
                     {
-                        cmd = new SqlCommand("sp_RegistrarMedico", conn);
+                        cmd = new SqlCommand("sp_RegistrarMedico", frmVI.conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
@@ -48,7 +47,7 @@ namespace Dispensario_Médico
                         MessageBox.Show("Se ha registrado satisfactoriamente.");
                     }
                     else{
-                        cmd = new SqlCommand("sp_ActualizarMedico", conn);
+                        cmd = new SqlCommand("sp_ActualizarMedico", frmVI.conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@Identificador", txtIdentificador.Text);
@@ -62,7 +61,7 @@ namespace Dispensario_Médico
 
                         MessageBox.Show("Se ha actualizado satisfactoriamente.");
                     }
-                    conn.Close();
+                    frmVI.conn.Close();
 
                     service.btnMedicos.PerformClick();
                     this.Close();
@@ -81,7 +80,7 @@ namespace Dispensario_Médico
                 MessageBox.Show("Ha ocurrido un error");
             }
 
-            conn.Close();
+            frmVI.conn.Close();
 
         }
 
@@ -156,14 +155,14 @@ namespace Dispensario_Médico
                 }
             }
 
-                cmd = new SqlCommand("sp_ExisteCedulaMedico", conn);
+                cmd = new SqlCommand("sp_ExisteCedulaMedico", frmVI.conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@cedula", txtCedula.Text);
 
-                conn.Open();
+                frmVI.conn.Open();
                 int existe = Convert.ToInt32(cmd.ExecuteScalar());
-                conn.Close();
+                frmVI.conn.Close();
 
             if (existe != 0 || frmVI.buscarValorAtributo(Convert.ToInt32(txtIdentificador.Text), "Paciente", "Cedula") == txtCedula.Text)
             {

@@ -44,7 +44,12 @@ namespace Dispensario_Médico
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            Reportes reportes = new Reportes();
+            //reportes.lbUsuario.Text = lbUserName.Text;
+            //reportes.lbTipoUsuario.Text = lbUserType.Text;
+            //reportes.pbFoto.Image = pbUser.Image;
+            reportes.Show();
+            this.Close();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -60,7 +65,7 @@ namespace Dispensario_Médico
                 btnServicios.Enabled = true;
             }
             
-            SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "'", frmVI.conn);
+            SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "' AND Foto IS NOT NULL", frmVI.conn);
             frmVI.conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
