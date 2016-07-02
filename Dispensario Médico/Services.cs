@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace Dispensario_Médico
         SqlCommand cmd;
         SqlCommandBuilder comando;
         ValidacionesInicializaciones frmVI = new ValidacionesInicializaciones();
-        public String usuario;
-        public String tipoUsuario;
+        public string usuario;
+        public string tipoUsuario;
 
         public Services()
         {
@@ -212,10 +213,15 @@ namespace Dispensario_Médico
                     usuario.dtpFechaNacimiento.Text = selectedRow.Cells["Fecha_Nacimiento"].Value.ToString();
                     usuario.cbTipoUsuario.SelectedItem = frmVI.buscarValorAtributo(Convert.ToInt32(selectedRow.Cells["Tipo_Usuario"].Value), "Tipo_Usuario", "Descripcion");
                     usuario.cbEstado.SelectedItem = selectedRow.Cells["Estado"].Value.ToString();
-
+                    usuario.pbFotoPerfil.Image = pbImagen.Image;
                     usuario.user = usuario.txtUsuario.Text;
+                    
+                    if(this.usuario == usuario.user)
+                    {
+                        usuario.mismoUsuario = true;
+                    }
                }
-                usuario.ShowDialog();
+                usuario.Show();
             }
             else if (x == 7)
             {
@@ -586,20 +592,30 @@ namespace Dispensario_Médico
 
             btnEdit.Enabled = true;
             btnRemove.Enabled = true;
-            if (selectedRow.Cells["Estado"].Value.ToString() == "Activado" || selectedRow.Cells["Estado"].Value.ToString() == "Activado    ")
+            try
             {
-                btnDisable.Enabled = true;
-                btnDisable.Cursor = Cursors.Hand;
-            }
-            else
-            {
-                btnDisable.Enabled = false;
-                btnDisable.Cursor = Cursors.No;
-            }
+                if (selectedRow.Cells["Estado"].Value.ToString() == "Activado" || selectedRow.Cells["Estado"].Value.ToString() == "Activado    ")
+                {
+                    btnDisable.Enabled = true;
+                }
+                else
+                {
+                    btnDisable.Enabled = false;
+                }
 
-            DesactivarBotonesEmpleado();
-            btnEdit.Cursor = Cursors.Hand;
-            btnRemove.Cursor = Cursors.Hand;
+                if (selectedRow.Cells["Nombre_Usuario"].Value.ToString() == usuario)
+                {
+                    btnDisable.Enabled = false;
+                    btnRemove.Enabled = false;
+                }
+
+                DesactivarBotonesEmpleado();
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void desactivarControles()
@@ -607,10 +623,6 @@ namespace Dispensario_Médico
             btnEdit.Enabled = false;
             btnDisable.Enabled = false;
             btnRemove.Enabled = false;
-
-            btnEdit.Cursor = Cursors.No;
-            btnDisable.Cursor = Cursors.No;
-            btnRemove.Cursor = Cursors.No;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

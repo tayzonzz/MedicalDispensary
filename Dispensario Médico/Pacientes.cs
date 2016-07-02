@@ -69,7 +69,7 @@ namespace Dispensario_Médico
 
                         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                         cmd.Parameters.AddWithValue("@Cedula", txtCedula.Text);
-                        cmd.Parameters.AddWithValue("@No_Carnet", txtCedula.Text);
+                        cmd.Parameters.AddWithValue("@No_Carnet", txtNumeroCarnet.Text);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@TipoPaciente", idTipoPaciente);
 
@@ -87,7 +87,7 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@Identificador", txtIdentificador.Text);
                         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                         cmd.Parameters.AddWithValue("@Cedula", txtCedula.Text);
-                        cmd.Parameters.AddWithValue("@No_Carnet", txtCedula.Text);
+                        cmd.Parameters.AddWithValue("@No_Carnet", txtNumeroCarnet.Text);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@TipoPaciente", idTipoPaciente);
 
