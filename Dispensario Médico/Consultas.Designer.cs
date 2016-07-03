@@ -358,7 +358,6 @@
         public System.Windows.Forms.Label lbTipoUsuario;
         public System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button btnOpcionBusqueda;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbOpcionBusqueda;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.DataGridView dgvConsulta;

@@ -31,8 +31,6 @@ namespace Dispensario_Médico
             crConnectionInfo.ServerName = "INNOVA\\SQLEXPRESS2";
             crConnectionInfo.DatabaseName = "Dispensario";
             crConnectionInfo.IntegratedSecurity = true;
-            crConnectionInfo.UserID = "Innova\\Christian";
-            crConnectionInfo.Password = "";
 
             CrTables = cryRpt.Database.Tables;
             foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
@@ -58,11 +56,6 @@ namespace Dispensario_Médico
         private void medicamentosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpMedicamentos.rpt");
-        }
-
-        private void pacientesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpInventario.rpt");
         }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
