@@ -18,8 +18,7 @@ namespace Dispensario_Médico
         {
             InitializeComponent();
         }
-
-        private void mEdicosToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void crearReporte(string direccion)
         {//Que es esto?
             ReportDocument cryRpt = new ReportDocument();
             TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
@@ -27,12 +26,13 @@ namespace Dispensario_Médico
             ConnectionInfo crConnectionInfo = new ConnectionInfo();
             Tables CrTables;
 
-            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicos.rpt");
+            cryRpt.Load(direccion);
 
-            crConnectionInfo.ServerName = "Jose-Lap";
+            crConnectionInfo.ServerName = "INNOVA\\SQLEXPRESS2";
             crConnectionInfo.DatabaseName = "Dispensario";
-            crConnectionInfo.UserID = "sa";
-            crConnectionInfo.Password = "123456";
+            crConnectionInfo.IntegratedSecurity = true;
+            crConnectionInfo.UserID = "Innova\\Christian";
+            crConnectionInfo.Password = "";
 
             CrTables = cryRpt.Database.Tables;
             foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
@@ -44,92 +44,40 @@ namespace Dispensario_Médico
 
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
+        }
+        private void mEdicosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpMedicos.rpt");
         }
 
         private void visitasMedicasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ReportDocument cryRpt = new ReportDocument();
-            TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
-            TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
-            ConnectionInfo crConnectionInfo = new ConnectionInfo();
-            Tables CrTables;
-
-            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpVisitasMedicas.rpt");
-
-            crConnectionInfo.ServerName = "Jose-Lap";
-            crConnectionInfo.DatabaseName = "Dispensario";
-            crConnectionInfo.UserID = "sa";
-            crConnectionInfo.Password = "123456";
-
-            CrTables = cryRpt.Database.Tables;
-            foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
-            {
-                crtableLogoninfo = CrTable.LogOnInfo;
-                crtableLogoninfo.ConnectionInfo = crConnectionInfo;
-                CrTable.ApplyLogOnInfo(crtableLogoninfo);
-            }
-
-            crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();
+            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpVisitasMedicas.rpt");
         }
 
         private void medicamentosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ReportDocument cryRpt = new ReportDocument();
-            TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
-            TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
-            ConnectionInfo crConnectionInfo = new ConnectionInfo();
-            Tables CrTables;
-
-            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicamentos.rpt");
-
-            crConnectionInfo.ServerName = "Jose-Lap";
-            crConnectionInfo.DatabaseName = "Dispensario";
-            crConnectionInfo.UserID = "sa";
-            crConnectionInfo.Password = "123456";
-
-            CrTables = cryRpt.Database.Tables;
-            foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
-            {
-                crtableLogoninfo = CrTable.LogOnInfo;
-                crtableLogoninfo.ConnectionInfo = crConnectionInfo;
-                CrTable.ApplyLogOnInfo(crtableLogoninfo);
-            }
-
-            crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();
+            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpMedicamentos.rpt");
         }
 
         private void pacientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ReportDocument cryRpt = new ReportDocument();
-            TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
-            TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
-            ConnectionInfo crConnectionInfo = new ConnectionInfo();
-            Tables CrTables;
-
-            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpInventario.rpt");
-
-            crConnectionInfo.ServerName = "Jose-Lap";
-            crConnectionInfo.DatabaseName = "Dispensario";
-            crConnectionInfo.UserID = "sa";
-            crConnectionInfo.Password = "123456";
-
-            CrTables = cryRpt.Database.Tables;
-            foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
-            {
-                crtableLogoninfo = CrTable.LogOnInfo;
-                crtableLogoninfo.ConnectionInfo = crConnectionInfo;
-                CrTable.ApplyLogOnInfo(crtableLogoninfo);
-            }
-
-            crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();
+            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpInventario.rpt");
         }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.lbUserName.Text = lbUsuario.Text;
+            main.lbUserType.Text = lbTipoUsuario.Text;
+            main.pbUser.Image = pbFoto.Image;
+            main.Show();
+            this.Close();
         }
     }
 }
