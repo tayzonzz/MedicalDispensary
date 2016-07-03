@@ -14,8 +14,6 @@ namespace Dispensario_Médico
     public partial class Consultas : Form
     {
         ValidacionesInicializaciones frmVI = new ValidacionesInicializaciones();
-        SqlCommand cmd;
-        public Main main;
         int x = 0;
         bool ejecutarQuery = false; 
 
@@ -235,7 +233,6 @@ namespace Dispensario_Médico
 
                     if (cbEntidad.SelectedIndex == 1 && campoSeleccionado != "FechaRegistro")
                     {
-                        int i;
                         string sSQL = "SELECT mm.Identificador, mm.Estado, mm.Descripcion AS Descripción, mm.Dosis AS Dósis, f.Descripcion AS [Tipo de Fármaco], u.Descripcion AS Ubicación, m.Descripcion AS Marca, mm.FechaRegistro AS [Fecha de Registro] FROM MEDICAMENTO mm INNER JOIN Farmaco f ON mm.id_tipoFarmaco = f.Identificador INNER JOIN Ubicacion u ON mm.id_ubicacion = u.Identificador INNER JOIN Marca m ON mm.id_marca = m.Identificador ";
                         string criterioBusqueda = txtCriterioBusqueda.Text;
 

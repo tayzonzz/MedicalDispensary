@@ -45,37 +45,40 @@ namespace Dispensario_Médico
         private void btnReportes_Click(object sender, EventArgs e)
         {
             Reportes reportes = new Reportes();
-            //reportes.lbUsuario.Text = lbUserName.Text;
-            //reportes.lbTipoUsuario.Text = lbUserType.Text;
-            //reportes.pbFoto.Image = pbUser.Image;
+            reportes.lbUsuario.Text = lbUserName.Text;
+            reportes.lbTipoUsuario.Text = lbUserType.Text;
+            reportes.pbFoto.Image = pbUser.Image;
             reportes.Show();
             this.Close();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            if (lbUserType.Text == "Cliente")
+            if (lbUserType.Text == "Médico")
             {
                 btnReportes.Enabled = false;
-                btnServicios.Enabled = false;
+                btnConsultas.Enabled = false;
             }
             else
             {
                 btnReportes.Enabled = true;
-                btnServicios.Enabled = true;
+                btnConsultas.Enabled = true;
             }
-            
+
             SqlCommand cmd = new SqlCommand("SELECT Foto FROM Usuario WHERE Nombre_Usuario = '" + lbUserName.Text + "' AND Foto IS NOT NULL", frmVI.conn);
             frmVI.conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
-                byte[] data = (byte[])dr["Foto"];
-                MemoryStream stream = new MemoryStream(data);
-                Bitmap bitmap = new Bitmap(stream);
+                if (dr["Foto"].ToString() != null)
+                {
+                    byte[] data = (byte[])dr["Foto"];
+                    MemoryStream stream = new MemoryStream(data);
+                    Bitmap bitmap = new Bitmap(stream);
 
-                pbUser.Image = bitmap;
+                    pbUser.Image = bitmap;
+                }
             }
 
             frmVI.conn.Close();

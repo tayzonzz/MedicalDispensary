@@ -59,10 +59,6 @@ namespace Dispensario_Médico
             dgvServices.DataMember = "Marca";
             lbServiciosTitle.Text = "Marca";
             desactivarControles();
-            /*this.dispensarioDataSet.Marca.Clear();
-            this.marcaTableAdapter.Fill(this.dispensarioDataSet.Marca);
-            dgvServices.Refresh();
-            dgvServices.DataSource = dispensarioDataSet.Marca;*/
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -561,6 +557,12 @@ namespace Dispensario_Médico
             this.usuarioTableAdapter.Fill(this.dispensarioDataSet.Usuario);
 
             DesactivarBotonesEmpleado();
+
+            if(tipoUsuario == "Médico")
+            {
+                btnUsers.Enabled = false;
+                btnUsers.BackColor = Color.Gray;
+            }
         }
         private void btnUsers_Click(object sender, EventArgs e)
         {
@@ -603,13 +605,15 @@ namespace Dispensario_Médico
                     btnDisable.Enabled = false;
                 }
 
-                if (selectedRow.Cells["Nombre_Usuario"].Value.ToString() == usuario)
-                {
-                    btnDisable.Enabled = false;
-                    btnRemove.Enabled = false;
-                }
-
                 DesactivarBotonesEmpleado();
+
+                if (btnUsers.Focus() == true) { 
+                    if (selectedRow.Cells["Nombre_Usuario"].Value.ToString() == usuario)
+                    {
+                        btnDisable.Enabled = false;
+                        btnRemove.Enabled = false;
+                    }
+                }
             }
             catch
             {
@@ -648,7 +652,7 @@ namespace Dispensario_Médico
 
         private void DesactivarBotonesEmpleado()
         {
-            if (tipoUsuario == "Empleado")
+            if (tipoUsuario == "Empleado" || tipoUsuario == "Médico")
             {
                 btnUsers.Enabled = false;
                 btnUsers.BackColor = Color.Gray;

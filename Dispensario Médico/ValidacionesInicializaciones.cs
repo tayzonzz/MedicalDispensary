@@ -14,8 +14,8 @@ namespace Dispensario_Médico
 {
     public partial class ValidacionesInicializaciones : Form
     {
-        public SqlConnection conn = new SqlConnection("Data Source=Jose-Lap;Initial Catalog=Dispensario;Integrated Security=True;User ID=sa;Password=123456");
-        SqlConnection conn2 = new SqlConnection("Data Source=Jose-Lap;Initial Catalog=Dispensario;Integrated Security=True;User ID=sa;Password=123456");
+        public SqlConnection conn = new SqlConnection("Data Source='INNOVA\\SQLEXPRESS2';initial catalog=Dispensario;integrated security=True;");
+        SqlConnection conn2 = new SqlConnection("Data Source='INNOVA\\SQLEXPRESS2';initial catalog=Dispensario;integrated security=True;");
         SqlCommand cmd;
         public Services service;
         public int x = 0;
@@ -25,7 +25,7 @@ namespace Dispensario_Médico
         {
             InitializeComponent();
         }
-        
+
         public string InicializarAdd(string entity)
         {
             int identifier = -1;
@@ -41,7 +41,7 @@ namespace Dispensario_Médico
                 else {
                     identifier = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
                 }
-                
+
             }
             catch
             {

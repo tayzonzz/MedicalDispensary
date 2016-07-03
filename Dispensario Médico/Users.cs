@@ -119,9 +119,20 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@Ocupacion", txtOcupacion.Text);
                         cmd.Parameters.AddWithValue("@TipoUsuario", idTipoUsuario);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@FotoPerfil", pbFotoPerfil.Image);
 
-                        cmd.ExecuteNonQuery();
+                        if (pbFotoPerfil != null)
+                        {
+                            // Stream usado como buffer
+                            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                            // Se guarda la imagen en el buffer
+                            pbFotoPerfil.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            // Se extraen los bytes del buffer para asignarlos como valor para el 
+                            // parámetro.
+                            cmd.Parameters.AddWithValue("@Foto", ms.GetBuffer());
+                            //cmd.Parameters.AddWithValue("@FotoPerfil", pbFotoPerfil.Image);
+
+                            cmd.ExecuteNonQuery();
+                        }
 
                         MessageBox.Show("Se ha registrado satisfactoriamente.");
                     }
@@ -157,17 +168,6 @@ namespace Dispensario_Médico
                         }
                         
                         MessageBox.Show("Se ha actualizado satisfactoriamente.");
-                        /*
-                        if (mismoUsuario || result == frmVI.buscarValorAtributo(Convert.ToInt32(txtIdentificador.Text), "Usuario", "Contrasenia"))
-                        {
-                            MessageBox.Show("Debido a que ha cambiado datos del estado, usuario y/o contraseña, debe volver a loguearse.");
-
-                            Login login = new Login();
-                            login.Show();
-                            service.Close();
-                            this.Close();
-                        }
-                        */
                     }
 
                     service.btnUsers.PerformClick();

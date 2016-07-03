@@ -134,7 +134,6 @@
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(214, 20);
             this.txtRecomendaciones.TabIndex = 9;
-            this.txtRecomendaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRecomendaciones_KeyPress);
             // 
             // label7
             // 
@@ -151,7 +150,6 @@
             this.txtSintomas.Name = "txtSintomas";
             this.txtSintomas.Size = new System.Drawing.Size(214, 20);
             this.txtSintomas.TabIndex = 8;
-            this.txtSintomas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSintomas_KeyPress);
             // 
             // label6
             // 
@@ -220,7 +218,6 @@
             this.cbMedicamentos.Name = "cbMedicamentos";
             this.cbMedicamentos.Size = new System.Drawing.Size(214, 21);
             this.cbMedicamentos.TabIndex = 6;
-            this.cbMedicamentos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMedicamentos_KeyPress);
             // 
             // cbEstado
             // 

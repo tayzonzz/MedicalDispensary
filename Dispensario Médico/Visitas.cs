@@ -93,22 +93,7 @@ namespace Dispensario_Médico
             cbMedico.SelectedItem = null;
             cbPaciente.SelectedItem = null;
         }
-
-        private void cbMedicamentos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            frmVI.OnlyLetters(e);
-        }
-
-        private void txtSintomas_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            frmVI.OnlyLetters(e);
-        }
-
-        private void txtRecomendaciones_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            frmVI.OnlyLetters(e);
-        }
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
