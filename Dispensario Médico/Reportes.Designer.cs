@@ -57,7 +57,7 @@ namespace Dispensario_Médico
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(798, 576);
+            this.groupBox1.Size = new System.Drawing.Size(758, 561);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -99,7 +99,7 @@ namespace Dispensario_Médico
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(3, 16);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(792, 557);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(752, 542);
             this.crystalReportViewer1.TabIndex = 1;
             // 
             // menuStrip1
@@ -109,7 +109,7 @@ namespace Dispensario_Médico
             this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(798, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(758, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -164,12 +164,14 @@ namespace Dispensario_Médico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 576);
+            this.ClientSize = new System.Drawing.Size(758, 561);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();

@@ -43,6 +43,7 @@ namespace Dispensario_Médico
                 {
                     cbTipoUsuario.Items.Add(dr["Descripcion"].ToString());
                 }
+
             }
             catch
             {
@@ -120,7 +121,7 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@TipoUsuario", idTipoUsuario);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
 
-                        if (pbFotoPerfil != null)
+                        if (pbFotoPerfil.Image != null)
                         {
                             // Stream usado como buffer
                             System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -131,14 +132,19 @@ namespace Dispensario_Médico
                             cmd.Parameters.AddWithValue("@Foto", ms.GetBuffer());
                             //cmd.Parameters.AddWithValue("@FotoPerfil", pbFotoPerfil.Image);
 
-                            cmd.ExecuteNonQuery();
                         }
+
+                        cmd.ExecuteNonQuery();
+
 
                         MessageBox.Show("Se ha registrado satisfactoriamente.");
                     }
                     else
                     {
-                        cmd = new SqlCommand("sp_ActualizarUsuarioConFoto", frmVI.conn);
+                        if(pbFotoPerfil.Image == null)
+                            cmd = new SqlCommand("sp_ActualizarUsuario", frmVI.conn);
+                        else
+                            cmd = new SqlCommand("sp_ActualizarUsuarioConFoto", frmVI.conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@Identificador", txtIdentificador.Text);
@@ -153,7 +159,7 @@ namespace Dispensario_Médico
                         cmd.Parameters.AddWithValue("@TipoUsuario", idTipoUsuario);
                         cmd.Parameters.AddWithValue("@Estado", cbEstado.SelectedItem.ToString());
 
-                        if (pbFotoPerfil != null)
+                        if (pbFotoPerfil.Image != null)
                         {
                             // Stream usado como buffer
                             System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -331,6 +337,11 @@ namespace Dispensario_Médico
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             frmVI.OnlyLetters(e);
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            frmVI.OnlyLettersNoSpace(e);
         }
     }
 }

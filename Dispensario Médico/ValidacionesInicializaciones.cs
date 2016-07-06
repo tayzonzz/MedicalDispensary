@@ -115,9 +115,47 @@ namespace Dispensario_Médico
             }
         }
 
+        public void OnlyDigitsSpaceLetters(KeyPressEventArgs pE)
+        {
+            if (char.IsLetter(pE.KeyChar) || pE.KeyChar == Convert.ToChar(Keys.Space) || char.IsDigit(pE.KeyChar) || pE.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                pE.Handled = false;
+            }
+            else
+            {
+                pE.Handled = true;
+            }
+        }
+
         public void OnlyLetters(KeyPressEventArgs pE)
         {
             if (char.IsLetter(pE.KeyChar) || pE.KeyChar == Convert.ToChar(Keys.Space) || pE.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                pE.Handled = false;
+            }
+            else
+            {
+                pE.Handled = true;
+            }
+        }
+
+        public string ColocarCaracteresExactos(string text)
+        {
+            string textResult = String.Empty;
+
+            for(int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == '\"' || text[i] == '\\') textResult += '\\';
+                else if (text[i] == '\'') textResult += '\'';
+                textResult += text[i];
+            }
+
+            return textResult;
+        }
+
+        public void OnlyLettersNoSpace(KeyPressEventArgs pE)
+        {
+            if (char.IsLetter(pE.KeyChar) || pE.KeyChar == Convert.ToChar(Keys.Back))
             {
                 pE.Handled = false;
             }

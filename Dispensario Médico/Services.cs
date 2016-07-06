@@ -209,7 +209,40 @@ namespace Dispensario_Médico
                     usuario.dtpFechaNacimiento.Text = selectedRow.Cells["Fecha_Nacimiento"].Value.ToString();
                     usuario.cbTipoUsuario.SelectedItem = frmVI.buscarValorAtributo(Convert.ToInt32(selectedRow.Cells["Tipo_Usuario"].Value), "Tipo_Usuario", "Descripcion");
                     usuario.cbEstado.SelectedItem = selectedRow.Cells["Estado"].Value.ToString();
-                    usuario.pbFotoPerfil.Image = pbImagen.Image;
+
+                    if (frmVI.buscarValorAtributo(Convert.ToInt32(usuario.txtIdentificador.Text), "Usuario", "Foto").ToString() != null)
+                    {
+                        frmVI.conn.Open();
+                        cmd = new SqlCommand("SELECT Foto FROM Usuario where Identificador = "+usuario.txtIdentificador.Text, frmVI.conn);
+                        SqlDataReader dr;
+
+                        try
+                        {
+                            dr = cmd.ExecuteReader();
+
+                            while (dr.Read())
+                            {
+                                if(dr["Foto"] != null)
+                                {
+                                    byte[] data = (byte[])dr["Foto"];
+                                    MemoryStream stream = new MemoryStream(data);
+                                    Bitmap bitmap = new Bitmap(stream);
+
+                                    usuario.pbFotoPerfil.Image = bitmap;
+                                }
+                            }
+
+                        }
+                        catch
+                        {
+
+                        }
+
+                        frmVI.conn.Close();
+
+                        
+                    }
+
                     usuario.user = usuario.txtUsuario.Text;
                     
                     if(this.usuario == usuario.user)

@@ -26,11 +26,13 @@ namespace Dispensario_Médico
         }
         private void connectToDispensario()
         {
+            string user = frmVI.ColocarCaracteresExactos(txtUser.Text);
+
             string result = string.Empty;
             byte[] encryted = Encoding.Unicode.GetBytes(txtPassword.Text);
             result = Convert.ToBase64String(encryted);
 
-            SqlCommand cmd = new SqlCommand("SELECT Identificador, Foto, Nombre_Usuario AS Username, Contrasenia AS Password, Tipo_Usuario AS Tipo, Estado AS Estado FROM Usuario WHERE Nombre_Usuario = '" + txtUser.Text + "' AND Contrasenia = '" + result + "'", frmVI.conn);
+            SqlCommand cmd = new SqlCommand("SELECT Identificador, Foto, Nombre_Usuario AS Username, Contrasenia AS Password, Tipo_Usuario AS Tipo, Estado AS Estado FROM Usuario WHERE Nombre_Usuario = '" + user + "' AND Contrasenia = '" + result + "'", frmVI.conn);
             SqlDataReader dr;
 
             try
@@ -123,6 +125,11 @@ namespace Dispensario_Médico
             {
                 btn_Click(sender, e);
             }
+        }
+
+        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //frmVI.OnlyLettersNoSpace(e);
         }
     }
 }

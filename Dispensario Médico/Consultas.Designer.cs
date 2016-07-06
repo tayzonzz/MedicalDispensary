@@ -58,12 +58,15 @@
             // 
             // dgvConsulta
             // 
+            this.dgvConsulta.AllowUserToAddRows = false;
+            this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsulta.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Location = new System.Drawing.Point(57, 236);
             this.dgvConsulta.MultiSelect = false;
             this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.Size = new System.Drawing.Size(832, 286);
             this.dgvConsulta.TabIndex = 0;
             // 
@@ -182,6 +185,7 @@
             // 
             this.txtCriterioBusqueda.Enabled = false;
             this.txtCriterioBusqueda.Location = new System.Drawing.Point(627, 14);
+            this.txtCriterioBusqueda.MaxLength = 99;
             this.txtCriterioBusqueda.Name = "txtCriterioBusqueda";
             this.txtCriterioBusqueda.Size = new System.Drawing.Size(202, 20);
             this.txtCriterioBusqueda.TabIndex = 3;
