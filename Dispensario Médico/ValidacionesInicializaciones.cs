@@ -189,5 +189,10 @@ namespace Dispensario_Médico
                     return false;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -131,5 +131,28 @@ namespace Dispensario_Médico
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicamentos.rpt");
+
+            ParameterFieldDefinitions crParameterFieldDefinitions;
+            ParameterFieldDefinition crParameterFieldDefinition;
+            ParameterValues crParameterValues = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+
+            crParameterDiscreteValue.Value = textBox1.Text;
+            crParameterFieldDefinitions = cryRpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["NombreMed"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Clear();
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+            crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();
+        }
     }
 }

@@ -40,6 +40,8 @@ namespace Dispensario_Médico
             this.medicamentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,9 +50,9 @@ namespace Dispensario_Médico
             // 
             this.groupBox1.Controls.Add(this.crystalReportViewer1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(0, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(798, 576);
+            this.groupBox1.Size = new System.Drawing.Size(798, 552);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -63,7 +65,7 @@ namespace Dispensario_Médico
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(3, 16);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(792, 557);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(792, 533);
             this.crystalReportViewer1.TabIndex = 1;
             // 
             // menuStrip1
@@ -123,13 +125,32 @@ namespace Dispensario_Médico
             this.exportarToolStripMenuItem.Text = "Aloha!";
             this.exportarToolStripMenuItem.Click += new System.EventHandler(this.exportarToolStripMenuItem_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(502, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(695, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Buscar Nombre";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 576);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reportes";
             this.Text = "Reportes";
@@ -155,5 +176,7 @@ namespace Dispensario_Médico
         private System.Windows.Forms.ToolStripMenuItem medicamentosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

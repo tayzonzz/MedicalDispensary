@@ -43,6 +43,7 @@
             this.label1.Size = new System.Drawing.Size(502, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "¿Está seguro de que desea eliminar el registro seleccionado?";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnCancelar
             // 

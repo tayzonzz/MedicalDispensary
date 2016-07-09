@@ -145,6 +145,7 @@ namespace Dispensario_Médico
         {
             SqlDataAdapter oDa = new SqlDataAdapter(pSQL, frmVI.conn);
             DataTable oTable = new DataTable();
+
             oDa.Fill(oTable);
             dgvConsulta.DataSource = oTable;
             dgvConsulta.Refresh();
