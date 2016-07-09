@@ -59,10 +59,6 @@ namespace Dispensario_Médico
             dgvServices.DataMember = "Marca";
             lbServiciosTitle.Text = "Marca";
             desactivarControles();
-            /*this.dispensarioDataSet.Marca.Clear();
-            this.marcaTableAdapter.Fill(this.dispensarioDataSet.Marca);
-            dgvServices.Refresh();
-            dgvServices.DataSource = dispensarioDataSet.Marca;*/
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -213,7 +209,40 @@ namespace Dispensario_Médico
                     usuario.dtpFechaNacimiento.Text = selectedRow.Cells["Fecha_Nacimiento"].Value.ToString();
                     usuario.cbTipoUsuario.SelectedItem = frmVI.buscarValorAtributo(Convert.ToInt32(selectedRow.Cells["Tipo_Usuario"].Value), "Tipo_Usuario", "Descripcion");
                     usuario.cbEstado.SelectedItem = selectedRow.Cells["Estado"].Value.ToString();
-                    usuario.pbFotoPerfil.Image = pbImagen.Image;
+
+                    if (frmVI.buscarValorAtributo(Convert.ToInt32(usuario.txtIdentificador.Text), "Usuario", "Foto").ToString() != null)
+                    {
+                        frmVI.conn.Open();
+                        cmd = new SqlCommand("SELECT Foto FROM Usuario where Identificador = "+usuario.txtIdentificador.Text, frmVI.conn);
+                        SqlDataReader dr;
+
+                        try
+                        {
+                            dr = cmd.ExecuteReader();
+
+                            while (dr.Read())
+                            {
+                                if(dr["Foto"] != null)
+                                {
+                                    byte[] data = (byte[])dr["Foto"];
+                                    MemoryStream stream = new MemoryStream(data);
+                                    Bitmap bitmap = new Bitmap(stream);
+
+                                    usuario.pbFotoPerfil.Image = bitmap;
+                                }
+                            }
+
+                        }
+                        catch
+                        {
+
+                        }
+
+                        frmVI.conn.Close();
+
+                        
+                    }
+
                     usuario.user = usuario.txtUsuario.Text;
                     
                     if(this.usuario == usuario.user)
@@ -561,6 +590,12 @@ namespace Dispensario_Médico
             this.usuarioTableAdapter.Fill(this.dispensarioDataSet.Usuario);
 
             DesactivarBotonesEmpleado();
+
+            if(tipoUsuario == "Médico")
+            {
+                btnUsers.Enabled = false;
+                btnUsers.BackColor = Color.Gray;
+            }
         }
         private void btnUsers_Click(object sender, EventArgs e)
         {
@@ -603,13 +638,15 @@ namespace Dispensario_Médico
                     btnDisable.Enabled = false;
                 }
 
-                if (selectedRow.Cells["Nombre_Usuario"].Value.ToString() == usuario)
-                {
-                    btnDisable.Enabled = false;
-                    btnRemove.Enabled = false;
-                }
-
                 DesactivarBotonesEmpleado();
+
+                if (btnUsers.Focus() == true) { 
+                    if (selectedRow.Cells["Nombre_Usuario"].Value.ToString() == usuario)
+                    {
+                        btnDisable.Enabled = false;
+                        btnRemove.Enabled = false;
+                    }
+                }
             }
             catch
             {
@@ -648,7 +685,7 @@ namespace Dispensario_Médico
 
         private void DesactivarBotonesEmpleado()
         {
-            if (tipoUsuario == "Empleado")
+            if (tipoUsuario == "Empleado" || tipoUsuario == "Médico")
             {
                 btnUsers.Enabled = false;
                 btnUsers.BackColor = Color.Gray;

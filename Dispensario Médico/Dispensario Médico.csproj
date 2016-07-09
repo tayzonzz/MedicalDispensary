@@ -92,12 +92,6 @@
       <DependentUpon>crpVisitasMedicas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crpInventario.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crpInventario.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DispensarioDataSet.cs">
       <DependentUpon>DispensarioDataSet.xsd</DependentUpon>
     </Compile>
@@ -200,10 +194,6 @@
     <EmbeddedResource Include="crpVisitasMedicas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crpVisitasMedicas.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="crpInventario.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crpInventario.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Farmacos.resx">
       <DependentUpon>Farmacos.cs</DependentUpon>
@@ -316,6 +306,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\doctor%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MedicalIcon.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
