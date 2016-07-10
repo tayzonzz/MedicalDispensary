@@ -74,16 +74,34 @@
     <Compile Include="Consultas.Designer.cs">
       <DependentUpon>Consultas.cs</DependentUpon>
     </Compile>
+    <Compile Include="crpMedicamentos - Copy1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpMedicamentos - Copy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crpMedicamentos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crpMedicamentos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crpMedicos - Copy1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpMedicos - Copy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crpMedicos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crpMedicos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crpVisitasMedicasCopy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpVisitasMedicasCopy.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="crpVisitasMedicas.cs">
@@ -183,13 +201,25 @@
     <EmbeddedResource Include="Consultas.resx">
       <DependentUpon>Consultas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="crpMedicamentos - Copy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpMedicamentos - Copy1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crpMedicamentos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crpMedicamentos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crpMedicos - Copy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpMedicos - Copy1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crpMedicos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crpMedicos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crpVisitasMedicasCopy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpVisitasMedicasCopy.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crpVisitasMedicas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

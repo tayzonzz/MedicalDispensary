@@ -28,7 +28,7 @@ namespace Dispensario_Médico
 
             cryRpt.Load(direccion);
 
-            crConnectionInfo.ServerName = "INNOVA\\SQLEXPRESS2";
+            crConnectionInfo.ServerName = "Jose-lap";
             crConnectionInfo.DatabaseName = "Dispensario";
             crConnectionInfo.IntegratedSecurity = true;
 
@@ -45,17 +45,17 @@ namespace Dispensario_Médico
         }
         private void mEdicosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpMedicos.rpt");
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicos.rpt");
         }
 
         private void visitasMedicasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpVisitasMedicas.rpt");
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpVisitasMedicas.rpt");
         }
 
         private void medicamentosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            crearReporte("C:/Users/Yasmín/Documents/Dispensario Médico/Dispensario Médico/crpMedicamentos.rpt");
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicamentos.rpt");
         }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,6 +71,21 @@ namespace Dispensario_Médico
             main.pbUser.Image = pbFoto.Image;
             main.Show();
             this.Close();
+        }
+
+        private void medicamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpVisitasMedicasCopy.rpt");
+        }
+
+        private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicos - Copy.rpt");
+        }
+
+        private void medicamentosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            crearReporte("C:/Users/Manuel/Source/Repos/MedicalDispensary/Dispensario Médico/crpMedicamentos - Copy.rpt");
         }
 
         //private void button1_Click(object sender, EventArgs e)

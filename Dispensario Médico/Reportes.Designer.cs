@@ -43,6 +43,10 @@ namespace Dispensario_Médico
             this.mEdicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.visitasMedicasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.medicamentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.filtroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medicamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medicamentosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -106,7 +110,8 @@ namespace Dispensario_Médico
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportarToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.filtroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(758, 24);
@@ -160,6 +165,37 @@ namespace Dispensario_Médico
             this.medicamentosToolStripMenuItem1.Text = "Medicamentos";
             this.medicamentosToolStripMenuItem1.Click += new System.EventHandler(this.medicamentosToolStripMenuItem1_Click);
             // 
+            // filtroToolStripMenuItem
+            // 
+            this.filtroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.medicoToolStripMenuItem,
+            this.medicamentosToolStripMenuItem,
+            this.medicamentosToolStripMenuItem2});
+            this.filtroToolStripMenuItem.Name = "filtroToolStripMenuItem";
+            this.filtroToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.filtroToolStripMenuItem.Text = "Filtro";
+            // 
+            // medicoToolStripMenuItem
+            // 
+            this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
+            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.medicoToolStripMenuItem.Text = "Médico";
+            this.medicoToolStripMenuItem.Click += new System.EventHandler(this.medicoToolStripMenuItem_Click);
+            // 
+            // medicamentosToolStripMenuItem
+            // 
+            this.medicamentosToolStripMenuItem.Name = "medicamentosToolStripMenuItem";
+            this.medicamentosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.medicamentosToolStripMenuItem.Text = "Visitas Médicas";
+            this.medicamentosToolStripMenuItem.Click += new System.EventHandler(this.medicamentosToolStripMenuItem_Click);
+            // 
+            // medicamentosToolStripMenuItem2
+            // 
+            this.medicamentosToolStripMenuItem2.Name = "medicamentosToolStripMenuItem2";
+            this.medicamentosToolStripMenuItem2.Size = new System.Drawing.Size(154, 22);
+            this.medicamentosToolStripMenuItem2.Text = "Medicamentos";
+            this.medicamentosToolStripMenuItem2.Click += new System.EventHandler(this.medicamentosToolStripMenuItem2_Click);
+            // 
             // Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +235,9 @@ namespace Dispensario_Médico
         public System.Windows.Forms.Label lbTipoUsuario;
         public System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filtroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medicamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medicamentosToolStripMenuItem2;
     }
 }
